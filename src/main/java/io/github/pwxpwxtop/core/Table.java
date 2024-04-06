@@ -29,7 +29,7 @@ public class Table {
 
     private StringBuilder from = new StringBuilder();
 
-    private StringBuilder where = new StringBuilder(" where 1=1");
+    private StringBuilder where = new StringBuilder(" where 1=1 ");
 
     public static Table gen(Class<?> cls, String alias){
         Table table = new Table();
@@ -117,9 +117,9 @@ public class Table {
     public Table eq(String key, String value, LOGIC logic, boolean isAuto){
         append(logic);
         if (isAuto){
-            where.append(alias).append(".").append(key).append(" = ").append(value);
+            where.append(alias).append(".").append(key).append(" = '").append(value).append("' ");
         }else {
-            where.append(key).append(" = ").append(value);
+            where.append(key).append(" = '").append(value).append("' ");
         }
 
         return this;
@@ -144,9 +144,9 @@ public class Table {
         append(logic);
 
         if (isAuto){
-            where.append(alias).append(".").append(key).append(" < '").append(value).append("'");
+            where.append(alias).append(".").append(key).append(" < '").append(value).append("' ");
         } else {
-            where.append(key).append(" < '").append(value).append("'");
+            where.append(key).append(" < '").append(value).append("' ");
         }
 
         return this;
@@ -160,9 +160,9 @@ public class Table {
     public Table le(String key, String value, LOGIC logic, boolean isAuto){
         append(logic);
         if (isAuto){
-            where.append(alias).append(".").append(key).append(" <= '").append(value).append("'");
+            where.append(alias).append(".").append(key).append(" <= '").append(value).append("' ");
         } else {
-            where.append(key).append(" <= '").append(value).append("'");
+            where.append(key).append(" <= '").append(value).append("' ");
         }
 
         return this;
@@ -181,9 +181,9 @@ public class Table {
     public Table gt(String key, String value, LOGIC logic, boolean isAuto){
         append(logic);
         if (isAuto){
-            where.append(alias).append(".").append(key).append(" > '").append(value).append("'");
+            where.append(alias).append(".").append(key).append(" > '").append(value).append("' ");
         } else {
-            where.append(key).append(" > '").append(value).append("'");
+            where.append(key).append(" > '").append(value).append("' ");
         }
         return this;
     }
@@ -202,9 +202,9 @@ public class Table {
     public Table ge(String key, String value, LOGIC logic, boolean isAuto){
         append(logic);
         if (isAuto){
-            where.append(alias).append(".").append(key).append(" >= '").append(value).append("'");
+            where.append(alias).append(".").append(key).append(" >= '").append(value).append("' ");
         } else {
-            where.append(key).append(" >= '").append(value).append("'");
+            where.append(key).append(" >= '").append(value).append("' ");
         }
         return this;
     }
@@ -223,7 +223,7 @@ public class Table {
     public Table isNotNull(String key, String value, LOGIC logic, boolean isAuto){
         append(logic);
         if (isAuto){
-            where.append(alias).append(".").append(key).append(" is not null");
+            where.append(alias).append(".").append(key).append(" is not null ");
         } else {
             where.append(key).append("  is not null ");
         }
@@ -244,7 +244,7 @@ public class Table {
     public Table isNull(String key, String value, LOGIC logic, boolean isAuto){
         append(logic);
         if (isAuto){
-            where.append(alias).append(".").append(key).append(" is null");
+            where.append(alias).append(".").append(key).append(" is null ");
         } else {
             where.append(key).append("  is null ");
         }
@@ -265,9 +265,9 @@ public class Table {
     public Table like(String key, String value, LOGIC logic, boolean isAuto){
         append(logic);
         if (isAuto){
-            where.append(alias).append(".").append(key).append(" like '%").append(value).append("%'");
+            where.append(alias).append(".").append(key).append(" like '%").append(value).append("%' ");
         } else {
-            where.append(key).append(" like '%").append(value).append("%'");
+            where.append(key).append(" like '%").append(value).append("%' ");
         }
         return this;
     }

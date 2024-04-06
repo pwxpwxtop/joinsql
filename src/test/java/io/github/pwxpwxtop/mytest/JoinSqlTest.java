@@ -3,6 +3,7 @@ package io.github.pwxpwxtop.mytest;
 import io.github.pwxpwxtop.core.Table;
 
 import io.github.pwxpwxtop.model.Scroll;
+import io.github.pwxpwxtop.model.ScrollStudent;
 
 /**
  * Description:
@@ -12,8 +13,12 @@ import io.github.pwxpwxtop.model.Scroll;
 public class JoinSqlTest {
 
     public static void main(String[] args) {
-        Table.gen(Scroll.class);
-        System.out.println(Table.gen(Scroll.class).getSql());
+        Table table1 = Table.gen(ScrollStudent.class);
+        Table table2 = Table.gen(Scroll.class);
+        System.out.println(table1.leftJoin(
+                table2, "scroll_id", "id")
+                .eq("name", "张三")
+                .getSql());
     }
 
 }

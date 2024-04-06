@@ -22,9 +22,6 @@
         </dependency>
     </dependencies>
 
-
-
-
     <name>${project.groupId}:${project.artifactId}</name>
 
     <description>
@@ -54,7 +51,7 @@
     </scm>
 
 
-    //发布地址
+
     <distributionManagement>
         <snapshotRepository>
             <id>ossrh</id>
